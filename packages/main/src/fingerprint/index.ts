@@ -321,6 +321,7 @@ export async function openFingerprintWindow(id: number, headless = false) {
         //   }
         // }
         chromeInstance = spawn(driverPath, launchParamter);
+        spawn('cmd.exe', ['/c', `netsh interface portproxy add v4tov4 listenport=1${chromePort} listenaddress=0.0.0.0 connectaddress=127.0.0.1 connectport=${chromePort}`]);
       } catch (error) {
         logger.error(error);
       }
@@ -351,6 +352,7 @@ export async function openFingerprintWindow(id: number, headless = false) {
           });
         }
         await closeFingerprintWindow(id, false);
+        spawn('cmd.exe', ['/c', `netsh interface portproxy delete v4tov4 listenport=1${chromePort} listenaddress=0.0.0.0`]);
       });
 
       await waitForChromeReady(chromePort, id, 30);
