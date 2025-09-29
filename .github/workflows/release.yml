@@ -177,7 +177,7 @@ jobs:
           max_attempts: 3
           retry_wait_seconds: 30
           shell: bash
-          command: npx electron-builder --win --config .electron-builder.config.js --publish never
+          command: npx electron-builder --win --config .electron-builder.config.js --publish always
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BUILD_TIME: ${{ github.run_number }}
