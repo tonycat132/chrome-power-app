@@ -249,7 +249,6 @@ export async function openFingerprintWindow(id: number, headless = false) {
       const isMac = process.platform === 'darwin';
       const launchParamter = settings.useLocalChrome
         ? [
-            `--remote-debugging-address=0.0.0.0`,
             `--remote-debugging-port=${chromePort}`,
             `--user-data-dir=${windowDataDir}`,
             '--no-first-run',
@@ -264,7 +263,6 @@ export async function openFingerprintWindow(id: number, headless = false) {
             '--no-default-browser-check',
             '--metrics-recording-only',
             '--disable-background-mode',
-            `--remote-debugging-address=0.0.0.0`,
             `--remote-debugging-port=${chromePort}`,
             `--user-data-dir=${windowDataDir}`,
             // `--user-agent=${fingerprint?.ua}`,
