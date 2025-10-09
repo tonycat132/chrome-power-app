@@ -9,6 +9,9 @@ export default function Start() {
   const [windowInfo, setWindowInfo] = useState({
     id: '',
     name: '',
+    port: 0,
+    proxy: "",
+    proxy_type: "",
     group_name: '',
     opened_at: '',
     profile_id: '',
@@ -145,6 +148,18 @@ export default function Start() {
                 <div className="flex flex-col sm:flex-row sm:justify-between py-1">
                   <span className="text-gray-400">名称</span>
                   <span className="text-gray-800 break-all sm:break-normal">{windowInfo.name}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-1">
+                  <span className="text-gray-400">端口</span>
+                  <span className="text-gray-800 break-all sm:break-normal">{windowInfo.port}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-1">
+                  <span className="text-gray-400">映射端口</span>
+                  <span className="text-gray-800 break-all sm:break-normal">1{windowInfo.port}</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-1">
+                  <span className="text-gray-400">代理</span>
+                  <span className="text-gray-800 break-all sm:break-normal">{windowInfo.proxy_type.toLowerCase()}://{windowInfo.proxy}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-1">
                   <span className="text-gray-400">分组</span>
