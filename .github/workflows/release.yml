@@ -175,6 +175,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BUILD_TIME: ${{ github.run_number }}
+          
+      # upload artifacts default-debug
+      - name: Archive default debug build artifacts (universal)
+        if: matrix.platform == 'win'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Default debug build artifact (universal)
+          path: dist/*.exe
 
       - name: Build and Publish for macOS x64
         if: matrix.platform == 'mac-x64'
